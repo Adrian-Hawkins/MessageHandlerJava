@@ -1,9 +1,9 @@
-package com.mycompany.app;
+package com.dbb.node;
 
-import com.mycompany.app.logging.*;
-import com.mycompany.app.messages.TextMessage;
-import com.mycompany.app.util.Bus;
-import com.mycompany.app.util.MessageHandlerScanner;
+import com.dbb.node.logging.LoggerConfig;
+import com.dbb.node.util.Bus;
+import com.dbb.node.util.MessageHandlerScanner;
+import com.dbb.node.messages.TextMessage;
 
 import java.util.logging.*;
 
@@ -16,7 +16,7 @@ public class App {
     public static void main(String[] args) {
         try {
             Bus bus = new Bus();
-            MessageHandlerScanner.scanForHandlers("com.mycompany.app.handlers");
+            MessageHandlerScanner.scanForHandlers("com.dbb.node.handlers");
 
 
              TextMessage msg = new TextMessage("Hello, World!");

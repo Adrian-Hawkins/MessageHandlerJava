@@ -1,12 +1,10 @@
-package com.mycompany.app.handlers;
+package com.dbb.node.handlers;
 
 //import com.example.annotations.HandleMessages;
-import com.mycompany.app.annotations.IHandleMessages;
-import com.mycompany.app.annotations.IHandle;
-import com.mycompany.app.annotations.Injectable;
-import com.mycompany.app.base.SagaBase;
-import com.mycompany.app.messages.TextMessage;
-import com.mycompany.app.util.Bus;
+import com.dbb.node.base.SagaBase;
+import com.dbb.node.annotations.IHandleMessages;
+import com.dbb.node.annotations.IHandle;
+import com.dbb.node.messages.TextMessage;
 
 @IHandleMessages()
 public class GetRoleHandler extends SagaBase {

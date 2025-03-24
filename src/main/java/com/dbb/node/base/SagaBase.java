@@ -1,8 +1,7 @@
-package com.mycompany.app.base;
+package com.dbb.node.base;
 
-import com.mycompany.app.App;
-import com.mycompany.app.logging.LoggerConfig;
-import com.mycompany.app.util.Bus;
+import com.dbb.node.logging.LoggerConfig;
+import com.dbb.node.util.Bus;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;

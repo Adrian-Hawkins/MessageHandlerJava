@@ -1,4 +1,4 @@
-package com.mycompany.app.logging;
+package com.dbb.node.logging;
 
 public class CorrelationContext {
     private static final ThreadLocal<String> correlationGuid = new ThreadLocal<>();

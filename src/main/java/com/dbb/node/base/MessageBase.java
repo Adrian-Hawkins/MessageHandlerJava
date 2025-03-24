@@ -1,4 +1,4 @@
-package com.mycompany.app.base;
+package com.dbb.node.base;
 
 import java.io.Serializable;
 import java.util.UUID;

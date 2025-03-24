@@ -1,12 +1,12 @@
-package com.mycompany.app.util;
+package com.dbb.node.util;
 
-import com.mycompany.app.annotations.IHandleMessages;
-import com.mycompany.app.annotations.IHandle;
-import com.mycompany.app.annotations.Injectable;
-import com.mycompany.app.annotations.MessageHandler;
-import com.mycompany.app.base.MessageBase;
-import com.mycompany.app.base.SagaBase;
-import com.mycompany.app.logging.LoggerConfig;
+import com.dbb.node.annotations.Injectable;
+import com.dbb.node.annotations.MessageHandler;
+import com.dbb.node.base.SagaBase;
+import com.dbb.node.logging.LoggerConfig;
+import com.dbb.node.annotations.IHandleMessages;
+import com.dbb.node.annotations.IHandle;
+import com.dbb.node.base.MessageBase;
 
 import java.io.File;
 import java.lang.reflect.Field;

@@ -1,5 +1,5 @@
-package com.mycompany.app.messages;
-import com.mycompany.app.base.MessageBase;
+package com.dbb.node.messages;
+import com.dbb.node.base.MessageBase;
 
 public class TextMessage extends MessageBase {
     private String content;

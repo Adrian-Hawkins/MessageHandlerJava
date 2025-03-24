@@ -1,4 +1,4 @@
-package com.mycompany.app.annotations;
+package com.dbb.node.annotations;
 
 @FunctionalInterface
 public interface MessageHandler {

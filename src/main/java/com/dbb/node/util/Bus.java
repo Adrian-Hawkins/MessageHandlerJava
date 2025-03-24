@@ -1,9 +1,8 @@
-package com.mycompany.app.util;
+package com.dbb.node.util;
 
-import com.mycompany.app.base.MessageBase;
-import com.mycompany.app.logging.CorrelationContext;
+import com.dbb.node.logging.CorrelationContext;
+import com.dbb.node.base.MessageBase;
 
-import java.awt.*;
 import java.io.*;
 import java.util.Base64;
 

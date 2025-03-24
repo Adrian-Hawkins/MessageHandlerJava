@@ -1,6 +1,6 @@
-package com.mycompany.app.messages;
+package com.dbb.node.messages;
 
-import com.mycompany.app.base.MessageBase;
+import com.dbb.node.base.MessageBase;
 
 public class ImageMessage extends MessageBase {
 

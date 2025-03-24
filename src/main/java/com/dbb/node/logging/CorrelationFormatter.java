@@ -1,4 +1,4 @@
-package com.mycompany.app.logging;
+package com.dbb.node.logging;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

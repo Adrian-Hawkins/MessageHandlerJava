@@ -1,4 +1,4 @@
-package com.mycompany.app.logging;
+package com.dbb.node.logging;
 
 import java.util.logging.ConsoleHandler;
 import java.util.logging.Handler;
