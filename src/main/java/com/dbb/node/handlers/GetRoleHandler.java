@@ -15,7 +15,7 @@ public class GetRoleHandler extends SagaBase {
 
     @IHandle(MessageType = TextMessage.class)
     public void some(TextMessage message) {
-        log("Processing text message: " + this.innertest + message.getContent());
+        log(String.format("Processing text message: %s and %s", this.innertest, message.getContent()));
     }
 
     public void someOtherMethod() {

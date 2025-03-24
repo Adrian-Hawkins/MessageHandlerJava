@@ -14,7 +14,6 @@ public class LoggerConfig {
 
         ConsoleHandler consoleHandler = new ConsoleHandler();
         consoleHandler.setFormatter(new CorrelationFormatter());
-        consoleHandler.setFilter(new CorrelationFilter());
         consoleHandler.setLevel(Level.ALL);
 
         logger.addHandler(consoleHandler);

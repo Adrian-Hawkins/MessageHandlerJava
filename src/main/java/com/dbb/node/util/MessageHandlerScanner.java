@@ -44,12 +44,11 @@ public class MessageHandlerScanner {
 
         for (Class<?> clazz : classes) {
             if (clazz.isAnnotationPresent(IHandleMessages.class)) {
-                IHandleMessages annotation = clazz.getAnnotation(IHandleMessages.class);
                 SagaBase handlerInstance;
                 try {
                     handlerInstance = (SagaBase) clazz.getDeclaredConstructor().newInstance();
                 } catch (Exception e) {
-                    System.err.println("Failed to instantiate handler class " + clazz.getName() + ": " + e.getMessage());
+                    logger.severe("Failed to instantiate handler class " + clazz.getName() + ": " + e.getMessage());
                     e.printStackTrace();
                     continue;
                 }
