@@ -1,13 +1,13 @@
 package com.mycompany.app.util;
 
 import com.mycompany.app.base.MessageBase;
+import com.mycompany.app.logging.CorrelationContext;
 
 import java.awt.*;
 import java.io.*;
 import java.util.Base64;
 
 public class Bus {
-    String innner = "jsdjfsdklfj";
     public String serialize(Object obj) throws IOException {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
@@ -25,17 +25,18 @@ public class Bus {
     }
 
     public void Send(MessageBase msg) {
+        // Most if not all of thi will have to be moved when rabbit is introduced
         String QueueName = msg.getClass().getSimpleName()
                 .replaceAll("([A-Z])", "_$1").toUpperCase().replaceFirst("^_", "");
+        CorrelationContext.setCorrelationGuid(msg.getGuid());
         try {
             String content = this.serialize(msg);
-            System.out.println(this.innner);
+            Object obj = this.deserialize(content);
+            MessageHandlerScanner.callHandler(QueueName, (MessageBase) obj);
         } catch (Exception e) {
-
+            // idk
+        } finally {
+            CorrelationContext.clear();
         }
-    }
-
-    public void Test() {
-        System.out.println("TESTing bus");
     }
 }

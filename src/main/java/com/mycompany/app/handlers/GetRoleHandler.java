@@ -11,26 +11,16 @@ import com.mycompany.app.util.Bus;
 @IHandleMessages()
 public class GetRoleHandler extends SagaBase {
 
-    @Injectable()
-    private Bus bus;
+//    @Injectable()
+//    private Bus bus;
     private String innertest = "something in getRole handler";
-//    @IHandle(MessageType = TextMessage.class)
-//    public void handleTextMessage(TextMessage message) {
-//        System.out.println("Processing text message: " + message.getContent());
-//    }
 
     @IHandle(MessageType = TextMessage.class)
     public void some(TextMessage message) {
-        this.bus.Test();
-        System.out.println("Processing text message: " + this.innertest);
+        log("Processing text message: " + this.innertest + message.getContent());
     }
 
-//    @IHandle(messageClass = ImageMessage.class)
-//    public void handleImageMessage(ImageMessage message) {
-//        System.out.println("Processing image message: " + message.getImageUrl());
-//    }
-
     public void someOtherMethod() {
-        System.out.println("This is not a message handler");
+        log("This is not a message handler");
     }
 }

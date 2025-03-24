@@ -6,6 +6,4 @@ import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
-public @interface IHandleMessages {
-    String description() default "Message handler class";
-}
+public @interface IHandleMessages {}

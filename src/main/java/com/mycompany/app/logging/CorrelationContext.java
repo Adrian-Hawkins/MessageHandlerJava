@@ -1,7 +1,5 @@
 package com.mycompany.app.logging;
 
-import java.util.UUID;
-
 public class CorrelationContext {
     private static final ThreadLocal<String> correlationGuid = new ThreadLocal<>();
 
