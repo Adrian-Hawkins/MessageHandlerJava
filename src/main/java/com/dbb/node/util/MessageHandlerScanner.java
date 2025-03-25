@@ -3,6 +3,7 @@ package com.dbb.node.util;
 import com.dbb.node.annotations.Injectable;
 import com.dbb.node.annotations.MessageHandler;
 import com.dbb.node.base.SagaBase;
+import com.dbb.node.logging.CorrelationContext;
 import com.dbb.node.logging.LoggerConfig;
 import com.dbb.node.annotations.IHandleMessages;
 import com.dbb.node.annotations.IHandle;
@@ -28,8 +29,12 @@ public class MessageHandlerScanner {
      * @param message   The message object
      */
     public static void callHandler(String QueueName, MessageBase message) throws Exception {
-        MessageHandler handler = handlerRegistry.get(QueueName);
-        handler.handle(message);
+        try {
+            MessageHandler handler = handlerRegistry.get(QueueName);
+            handler.handle(message);
+        } catch (Exception e) {
+            // Send to error queue or sumn
+        }
     }
 
     /**
@@ -49,7 +54,7 @@ public class MessageHandlerScanner {
                     handlerInstance = (SagaBase) clazz.getDeclaredConstructor().newInstance();
                 } catch (Exception e) {
                     logger.severe("Failed to instantiate handler class " + clazz.getName() + ": " + e.getMessage());
-                    e.printStackTrace();
+                    logger.severe(Arrays.toString(e.getStackTrace()));
                     continue;
                 }
 
@@ -71,8 +76,7 @@ public class MessageHandlerScanner {
                                 .replaceAll("([A-Z])", "_$1")
                                 .toUpperCase().replaceFirst("^_", "");
                         logger.info(String.format("Registering MessageHandler for: %s", QueueName));
-                        handlerRegistry.put(QueueName
-                                , handler);
+                        handlerRegistry.put(QueueName, handler);
                     }
                 }
             }
